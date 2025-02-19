@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  max-width: 300px;
   margin: auto;
 }
 
@@ -12,18 +11,36 @@
   background: white;
   border: 1px solid #ccc;
   cursor: pointer;
-  transition: background 1s ease;
+  transition: background 1s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+
+.box:hover {
+  transform: scale(1.05); /* Slightly scale up on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 .box.black {
-  background: black;
+  background: radial-gradient(circle, black 50%, white 100%);
+  background-size: 0% 0%;
+  background-position: center;
+  animation: fillBox 1s ease forwards;
+}
+
+@keyframes fillBox {
+  0% {
+    background-size: 0% 0%;
+  }
+  100% {
+    background-size: 200% 200%;
+  }
 }
 
 .reset-btn {
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: darkgreen;
   color: white;
   border: none;
   border-radius: 5px;
@@ -32,17 +49,5 @@
 }
 
 .reset-btn:hover {
-  background-color: #0056b3;
-}
-
-.box {
-  transition: background 1s ease, transform 1s ease;
-}
-
-.box.black {
-  transform: scale(1.1);
-}
-
-.box:not(.black) {
-  transform: scale(1);
+  background-color: rgb(49, 145, 49)
 }
