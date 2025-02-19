@@ -23,11 +23,19 @@ export class GridComponent {
     let delay = 0;
     this.clickOrder.forEach((index) => {
       setTimeout(() => {
-        this.boxes[index] = { clicked: false, order: -1 };
+        const boxElement = document.querySelectorAll('.box')[index] as HTMLElement;
+        if (boxElement) {
+          boxElement.classList.add('resetting');
+          setTimeout(() => {
+            boxElement.classList.remove('resetting');
+            this.boxes[index] = { clicked: false, order: -1 };
+          }, 1000); // Match the duration of unfillBox animation
+        }
       }, delay);
-      delay += 300; // Adjust delay for animation
+      delay += 500; // Adjust delay for each box reset
     });
     this.clickOrder = [];
     this.currentOrder = 0;
   }
+
 }

@@ -13,6 +13,7 @@
   cursor: pointer;
   transition: background 1s ease, transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 10px;
+  border: 3px solid darkgreen;
 }
 
 .box:hover {
@@ -21,7 +22,7 @@
 }
 
 .box.black {
-  background: radial-gradient(circle, black 50%, white 100%);
+  background: radial-gradient(circle, black 50%, green 100%);
   background-size: 0% 0%;
   background-position: center;
   animation: fillBox 1s ease forwards;
@@ -33,6 +34,19 @@
   }
   100% {
     background-size: 200% 200%;
+  }
+}
+
+.box.resetting {
+  animation: unfillBox 1s ease forwards; /* Reverse animation */
+}
+
+@keyframes unfillBox {
+  0% {
+    background-size: 200% 200%; /* Start fully filled */
+  }
+  100% {
+    background-size: 0% 0%; /* Shrink back to initial size */
   }
 }
 
