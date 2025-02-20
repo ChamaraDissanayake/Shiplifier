@@ -1,4 +1,4 @@
 export class Box {
-  clicked: boolean | undefined;
-  order: number | undefined;
+  clicked: boolean = false;
+  order: number = -1;
 }
