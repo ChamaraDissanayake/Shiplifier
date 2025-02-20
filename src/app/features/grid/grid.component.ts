@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Box } from '../../shared/models/box';
 
 @Component({
   selector: 'app-grid',
@@ -8,9 +9,9 @@ import { Component } from '@angular/core';
   imports: [CommonModule]
 })
 export class GridComponent {
-  boxes = Array(9).fill({ clicked: false, order: -1 });
+  boxes: Box[] = Array(9).fill({ clicked: false, order: -1 });
   clickOrder: number[] = [];
-  private currentOrder = 0;
+  private currentOrder: number = 0;
 
   onBoxClick(index: number): void {
     if (!this.boxes[index].clicked) {
@@ -20,7 +21,7 @@ export class GridComponent {
   }
 
   onReset(): void {
-    let delay = 0;
+    let delay: number = 0;
     this.clickOrder.forEach((index) => {
       setTimeout(() => {
         const boxElement = document.querySelectorAll('.box')[index] as HTMLElement;
