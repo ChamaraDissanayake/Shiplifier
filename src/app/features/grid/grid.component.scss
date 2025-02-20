@@ -9,23 +9,26 @@
   width: 100px;
   height: 100px;
   background: white;
-  border: 1px solid #ccc;
   cursor: pointer;
   transition: background 1s ease, transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 10px;
   border: 3px solid darkgreen;
-}
 
-.box:hover {
-  transform: scale(1.05); /* Slightly scale up on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-}
+  &:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  }
 
-.box.black {
-  background: radial-gradient(circle, black 50%, green 100%);
-  background-size: 0% 0%;
-  background-position: center;
-  animation: fillBox 1s ease forwards;
+  &.black {
+    background: radial-gradient(circle, black 50%, green 100%);
+    background-size: 0% 0%;
+    background-position: center;
+    animation: fillBox 1s ease forwards;
+  }
+
+  &.resetting {
+    animation: unfillBox 1s ease forwards; /* Reverse animation */
+  }
 }
 
 @keyframes fillBox {
@@ -35,10 +38,6 @@
   100% {
     background-size: 200% 200%;
   }
-}
-
-.box.resetting {
-  animation: unfillBox 1s ease forwards; /* Reverse animation */
 }
 
 @keyframes unfillBox {
@@ -60,8 +59,8 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 1s ease;
-}
 
-.reset-btn:hover {
-  background-color: rgb(49, 145, 49)
+  &:hover {
+    background-color: rgb(49, 145, 49);
+  }
 }
